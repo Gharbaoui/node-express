@@ -5,7 +5,7 @@ const filedata = readFileSync('./content/fs.txt', 'utf8');
 console.log(filedata);
 
 writeFileSync(
-    './content/new-file.txt',
+    './content/new-file-sync.txt',
     `this what was read before: ${filedata}`
 );
 
