@@ -18,4 +18,5 @@ readFile('./content/fs.txt', (err, fileData) => {
         return ;
     }
     console.log(`data is ready: ${fileData}`);
+    writeFile('./content/new-file-async.txt', `result of async write ${fileData}`, (err, res) => {});
 });
