@@ -1,1 +1,7 @@
 learn node js
+notes:
+	package is just folder that contains javascript code, some call them modules or dependicies they are the same.
+	package.json stores info about out project, you can create this file by yourself or run npm init to figure out for you
+use:
+	npm i <package-name> // local to this project
+	npm install -g <package-name> // global any other project can use it
