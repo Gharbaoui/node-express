@@ -1,13 +1,8 @@
 const animalsRouter = require('express').Router();
+const {getAllAnimals, getOneAnimal} = require('../controllers/animals');
 
-animalsRouter.get('/', (req, res) => {
-    console.log(`animals rout`);
-    res.send(`animals`);
-});
+animalsRouter.get('/', getAllAnimals);
 
-animalsRouter.get('/:animalID', (req, res) => {
-    console.log(`one animal`);
-    res.send(`lion`);
-});
+animalsRouter.get('/:animalID', getOneAnimal);
 
 module.exports = {animalsRouter};
