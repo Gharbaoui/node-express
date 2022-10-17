@@ -51,17 +51,18 @@ app.get('/api/v1/query', (req, res) => {
 // middelware are functions that are excuted duaring the request to the server
 // each middelware has access to req and res objects
 
+app.use(middelfunc);
 
 
-app.get('/md/home', middelfunc, (req, res) => {
+app.get('/md/home', (req, res) => {
     res.send(`middleware home`);
 });
 
-app.get('/md/about', middelfunc,(req, res) => {
+app.get('/md/about', (req, res) => {
     res.send('middleware about');
 });
 
-app.get('/md/stream', middelfunc, (req, res) => {
+app.get('/md/stream', (req, res) => {
     res.send(`you are in the stream section`);
 });
 
