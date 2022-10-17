@@ -46,6 +46,23 @@ app.get('/api/v1/query', (req, res) => {
     res.json(productsThatMatch);
 });
 
+// middelware are functions that are excuted duaring the request to the server
+// each middelware has access to req and res objects
+
+
+const middelfunc = (req, res, next)  => {
+    console.log(req.url);
+    next();
+}
+
+app.get('/md/home', middelfunc, (req, res) => {
+    res.send(`middleware home`);
+});
+
+app.get('/md/about', middelfunc,(req, res) => {
+    res.send('middleware about');
+});
+
 app.listen(2000, () => {
     console.log(`listning on port 2000....`);
 });
