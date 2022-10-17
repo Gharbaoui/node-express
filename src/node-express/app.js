@@ -71,28 +71,12 @@ app.get('/md/stream', (req, res) => {
 */
 
 
-app.get('/api/v1/users/', (req, res) => {
-    console.log(`users rout`);
-    res.send(`USERS`);
-});
 
-app.get('/api/v1/users/:userID', (req, res) => {
-    console.log(`one user`);
-    res.send(`mohamed`);
-});
+const {usersRouter} = require('./router/users');
+const {animalsRouter} = require('./router/animals');
 
-
-
-app.get('/api/v1/animals/', (req, res) => {
-    console.log(`animals rout`);
-    res.send(`animals`);
-});
-
-app.get('/api/v1/animals/:animalID', (req, res) => {
-    console.log(`one animal`);
-    res.send(`lion`);
-});
-
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/animals', animalsRouter);
 
 app.listen(2000, () => {
     console.log(`listning on port 2000....`);
