@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const {products, people} = require('./data');
 const {middelfunc} = require('./middelware-functions');
+const {authorize} = require(`./authorize`);
 
 const app = express();
 
@@ -51,7 +52,7 @@ app.get('/api/v1/query', (req, res) => {
 // middelware are functions that are excuted duaring the request to the server
 // each middelware has access to req and res objects
 
-app.use(middelfunc);
+app.use([middelfunc, authorize]);
 
 
 app.get('/md/home', (req, res) => {
