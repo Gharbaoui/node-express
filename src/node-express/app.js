@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const {products, people} = require('./data');
+const {middelfunc} = require('./middelware-functions');
+
 
 const app = express();
 
@@ -50,10 +52,6 @@ app.get('/api/v1/query', (req, res) => {
 // each middelware has access to req and res objects
 
 
-const middelfunc = (req, res, next)  => {
-    console.log(req.url);
-    next();
-}
 
 app.get('/md/home', middelfunc, (req, res) => {
     res.send(`middleware home`);
@@ -61,6 +59,10 @@ app.get('/md/home', middelfunc, (req, res) => {
 
 app.get('/md/about', middelfunc,(req, res) => {
     res.send('middleware about');
+});
+
+app.get('/md/stream', middelfunc, (req, res) => {
+    res.send(`you are in the stream section`);
 });
 
 app.listen(2000, () => {
