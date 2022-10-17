@@ -3,9 +3,9 @@ const path = require('path');
 const {products, people} = require('./data');
 const {middelfunc} = require('./middelware-functions');
 
-
 const app = express();
 
+app.use(`/api`, middelfunc); // this will work with any url that matchs /api
 
 app.get('/', (req, res) => {
     res.json([products]);
